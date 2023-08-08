@@ -1,0 +1,14 @@
+---
+const { title, url, image, imageAlt } = Astro.props;
+---
+
+<li>
+  <img class="blog-image" src={image} alt={imageAlt} />
+  <a href={url}>{title}</a>
+</li>
+
+<style>
+  .blog-image {
+    width: 300px;
+  }
+</style>
