@@ -1,0 +1,9 @@
+---
+const navLinks = [
+  { text: "Home", href: "/" },
+  { text: "About", href: "/about/" },
+  { text: "Blog", href: "/blog/" },
+];
+---
+
+{navLinks.map(({ text, href }) => <a href={href}>{text}</a>)}
