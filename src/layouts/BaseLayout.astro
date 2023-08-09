@@ -12,10 +12,16 @@ const { pageTitle } = Astro.props;
     <meta name="viewport" content="width=device-width" />
     <meta name="generator" content={Astro.generator} />
     <title>Astro | {pageTitle}</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400;1,900&display=swap"
+      rel="stylesheet"
+    />
   </head>
-  <body>
+  <body class="bg-white text-gray-900 dark:bg-gray-800 dark:text-gray-200">
     <Header />
-    <h1>{pageTitle}</h1>
+    <h1 class="text-4xl font-bold text-center">{pageTitle}</h1>
     <!-- slot is similiar to {children} in React -->
     <slot />
     <Footer />
