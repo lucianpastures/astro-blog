@@ -15,3 +15,18 @@ This enables users to subscribe to your posts via an RSS feed reader.
 ```md
 Download a feed reader, or sign up for an online feed reader service and subscribe to your site by adding your own Netlify URL. You can also share this link with others so they can subscribe to your posts, and be notified when a new one is published.
 ```
+
+## Astro Island
+
+This is what astro calls an interactive component on an otherwise static page, e.g. a dark mode toggle button
+
+We will use Preact. Use `npx astro add preact` to add it via astro (replace preact with whatever UI library or any other "plugin" you want in an Astro project, e.g. `npx astro add tailwind`). Preact is an extremly lightweight version of React that specializes in building lightweight interactive components.
+
+### Preact + Astro
+
+1. create `components/Greeting.jsx` (notice we end the file with `.jsx` not `.astro`)
+2. import Preact and just make it like a regular React component with the same syntax
+3. import it into your home route `pages/index.astro`
+4. make sure to use `client:load` in the component `<Greeting client:load messages={["Hej", "Hallo", "Hola", "Habari"]} />` so Astro knows it is an island not a regular Astro component
+
+`client:load` on a component = **hydrated component/island** which is astro terminology for "component that has permission to execute javascript on the client after the intial page load, i.e. this component is interactive." Look into `client:visible` too.
