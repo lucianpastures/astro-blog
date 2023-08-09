@@ -1,7 +1,7 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
 import BlogItem from "../components/BlogItem.astro";
-// allPosts = an array of objects made from the files in the posts folder
+// allPosts = an array of objects made from the files in the posts folder using Astro API
 const allPosts = await Astro.glob("../pages/posts/*.md");
 const pageTitle = "Blog";
 ---
