@@ -19,11 +19,15 @@ const { pageTitle } = Astro.props;
       rel="stylesheet"
     />
   </head>
-  <body class="bg-white text-gray-900 dark:bg-gray-800 dark:text-gray-200">
+  <body class="bg-white text-slate-900 dark:bg-slate-800 dark:text-slate-200">
     <Header />
-    <h1 class="text-4xl font-bold text-center">{pageTitle}</h1>
+    <div class="container mx-auto py-0 p-4 md:p-8 lg:p-16">
+      <h1 class="text-3xl md:text-4xl lg:text-6xl font-bold">{pageTitle}</h1>
+    </div>
     <!-- slot is similiar to {children} in React -->
-    <slot />
+    <main class="container mx-auto p-4 md:p-8 lg:p-16 lg:py-2">
+      <slot />
+    </main>
     <Footer />
     <script>
       import "../scripts/menu.js";

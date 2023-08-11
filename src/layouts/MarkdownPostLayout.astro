@@ -4,16 +4,36 @@ const { frontmatter } = Astro.props;
 ---
 
 <BaseLayout pageTitle={frontmatter.title}>
-  <article class="prose lg:prose-xl max-w-7xl mx-auto">
-    <p>{frontmatter.pubDate.slice(0, 10)}</p>
-    <p><em>{frontmatter.description}</em></p>
-    <p>Written by: {frontmatter.author}</p>
-    <img src={frontmatter.image.url} width="300" alt={frontmatter.image.alt} />
-    <div class="tags">
+  <header>
+    <img
+      src={frontmatter.image.url}
+      width="300"
+      alt={frontmatter.image.alt}
+      class="w-full md:w-9/12 lg:w-7/12 rounded-lg dark:drop-shadow-2xl"
+    />
+    <div class="py-2">
+      <p class="text-sm py-0">
+        Written on <span class="font-bold"
+          >{frontmatter.pubDate.slice(0, 10)}</span
+        >
+      </p>
+      <p class="text-sm py-0">{frontmatter.description}</p>
+      <!-- <p class="text-sm py-0 my-0">Written by: {frontmatter.author}</p> -->
+    </div>
+  </header>
+  <article
+    class="prose prose-slate md:prose-lg lg:prose-xl dark:prose-invert prose-img:rounded-xl"
+  >
+    <div class="flex flex-wrap mx-auto">
       {
         frontmatter.tags.map((tag) => (
-          <p class="tag">
-            <a href={`/tags/${tag}`}>{tag}</a>
+          <p class="m-2 cursor-pointer rounded-md px-4 py-2 bg-slate-200 hover:bg-slate-50 dark:bg-violet-400 dark:hover:bg-violet-600">
+            <a
+              class="no-underline text-slate-800  dark:text-gray-900 dark:hover:text-slate-300"
+              href={`/tags/${tag}`}
+            >
+              {tag}
+            </a>
           </p>
         ))
       }
@@ -21,24 +41,3 @@ const { frontmatter } = Astro.props;
     <slot />
   </article>
 </BaseLayout>
-
-<style>
-  a {
-    color: #00539f;
-  }
-
-  .tags {
-    display: flex;
-    flex-wrap: wrap;
-    margin: 0 auto;
-  }
-
-  .tag {
-    margin: 0.25em;
-    border: dotted 1px #a1a1a1;
-    border-radius: 0.5em;
-    padding: 0.5em 1em;
-    font-size: 1.15em;
-    background-color: #f8fcfd;
-  }
-</style>
